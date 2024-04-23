@@ -9,11 +9,11 @@ public class DuplicateNumbers {
 
          int num = 8;
          int value = 0;
-         int j;
+
          for( int i :  number){
             value ^= i;
          }
-         for(j = 1; j <= num;j++){
+         for(int j = 1; j <= num;j++){
              value ^= j ;
          }
 

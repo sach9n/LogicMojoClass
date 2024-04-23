@@ -68,7 +68,7 @@ public class MIssingNumber {
     // Xor Approach and TC =  log(logn);
     public static void xorApproach(int[]num){
         int sum = 0;
-        int n = num.length +1;
+        int n = num.length+1;
         for(int x : num){
              sum = sum ^ x;
         }
