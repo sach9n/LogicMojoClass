@@ -46,6 +46,7 @@ public class TwoRepeatedNumber {
         }
     }
 
+    // O(n) checking the number one after the other
     public static void arrayEleAsIndex(int[]nums ,int N){
         for(int  i= 0; i< nums.length;i++){
             int absValue = Math.abs(nums[i]);
@@ -57,13 +58,45 @@ public class TwoRepeatedNumber {
         }
 
     }
+
+    // Xor Approach O(log n)complexity
+    public static void XorApproach(int[]nums , int N){
+        int res = 0;
+
+        for(int x: nums) res = res^x;
+        for(int i=1; i<= N;i++) res = res^i;
+
+        int rightMost = (res & ~(res-1));
+
+        int setXor =0, setXor2 =0;
+
+        for(int x:nums){
+            if((rightMost & x)==0){
+                setXor= setXor^x;
+            }else {
+                setXor2 = setXor2^x;
+            }
+        }
+
+        for(int i=1;i<=N;i++){
+            if((rightMost & i)==0){
+                setXor = setXor^i;
+            }else {
+                setXor2 = setXor2^i;
+            }
+        }
+        System.out.println("FirstNumber: " + setXor + " " + "Second Number " + setXor2);
+    }
+
+
     public static void main(String[] args) {
         int[]repeated ={0,1,2,1,2,3,4,5,6};
-        int[]test= {1,3,4,2,2};
+        int[]test= {1,3,1,2,2};
         NestApproach(test);
         HasMapApproach(repeated);
         sortingApproach(repeated);
 
-        arrayEleAsIndex(repeated,9);
+        arrayEleAsIndex(repeated,8);
+        XorApproach(test,4);
     }
 }

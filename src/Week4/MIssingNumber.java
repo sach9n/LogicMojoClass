@@ -10,15 +10,15 @@ public class MIssingNumber {
          int sum = 0;
          int ArraySum = 0;
          int diff = 0;
-         int num = n.length+1;
+
          for(int x : n){
              ArraySum += x;
          }
 
-         for(int i = 1; i <= num;i++){
+         for(int i = 1; i < n.length+1;i++){
             sum += i;
         }
-         diff = sum - ArraySum;
+         diff =ArraySum-sum;
 
         System.out.println(diff);
     }
@@ -68,12 +68,12 @@ public class MIssingNumber {
     // Xor Approach and TC =  log(logn);
     public static void xorApproach(int[]num){
         int sum = 0;
-        int n = num.length+1;
+        int n = num.length;
         for(int x : num){
              sum = sum ^ x;
         }
 
-        for(int i = 0; i <= n;i++){
+        for(int i = 1; i < n;i++){
             sum = sum^i;
         }
 
@@ -83,8 +83,8 @@ public class MIssingNumber {
 
 
     public static void main(String[] args) {
-        int[]nums = {1,2,4,5,6,3,7};
-        //SumApproach(nums);
+        int[]nums = {3,1,3};
+        SumApproach(nums);
         xorApproach(nums); // This approach will work for one missing value
 
     }
