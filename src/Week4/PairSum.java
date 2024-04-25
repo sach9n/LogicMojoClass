@@ -56,5 +56,10 @@ public class PairSum {
        // NestedLoop(arr,10);
         //TwoPointerApproach(arr, 7);
         hashMapApproch(arr,10);
+
+
+
+
+
     }
 }
